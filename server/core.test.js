@@ -1,0 +1,7 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {validateArea,quality,bestMonthly,period} from './core.js';
+const geometry={type:'Polygon',coordinates:[[[0,0],[.1,0],[.1,.1],[0,.1],[0,0]]]};
+test('rejects malformed and excessive area',()=>{assert.deepEqual(validateArea(geometry),[0,0,.1,.1]);assert.throws(()=>validateArea({type:'Point',coordinates:[0,0]}));assert.throws(()=>validateArea({type:'Polygon',coordinates:[[[0,0],[1,0],[1,1],[0,0]]]}));});
+test('visibility denominator includes missing pixels',()=>{const png={width:2,height:2,data:Buffer.from([255,255,0,255,0,255,0,255,0,0,0,255,255,255,0,255])};assert.deepEqual(quality(png,[0,0,.1,.1],geometry),{visibility:50,coverage:75});});
+test('best monthly uses local visibility before tile cloud',()=>{const a={datetime:'2025-01-02',visibility:90,cloud:50},b={datetime:'2025-01-03',visibility:60,cloud:0};assert.deepEqual(bestMonthly([b,a]),[a]);});
+test('period is rolling three years',()=>assert.deepEqual(period(new Date('2026-10-22T12:00:00Z')),['2023-10-22T12:00:00.000Z','2026-10-22T12:00:00.000Z']));
+test('quality excludes holes from the visibility denominator',()=>{const shape={type:'Polygon',coordinates:[geometry.coordinates[0],[[0,0],[.05,0],[.05,.1],[0,.1],[0,0]]]};validateArea(shape);const png={width:2,height:2,data:Buffer.from([0,0,0,255,255,255,0,255,0,0,0,255,255,255,0,255])};assert.deepEqual(quality(png,[0,0,.1,.1],shape),{visibility:100,coverage:100});});

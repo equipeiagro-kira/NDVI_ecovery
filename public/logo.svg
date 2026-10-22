@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="280" viewBox="0 0 1400 280" role="img" aria-labelledby="title desc">
+  <title id="title">RUBISCK horizontal logo</title>
+  <desc id="desc">Responsive horizontal RUBISCK signature for professional digital use.</desc>
+  
+  
+  
+    <g transform="translate(24 20) scale(0.46875)"><g id="rubisck-symbol">
+    
+    <g id="calvin-cycle" fill="none" stroke="#9A78F2" stroke-width="28" stroke-linecap="round">
+      <path d="M364.15 107.14A184 184 0 0 1 374.27 396.95"/><path d="M330.84 424.09A184 184 0 0 1 74.80 287.95"/><path d="M73.01 236.77A184 184 0 0 1 318.93 83.10"/>
+    </g>
+    <g id="agent-links" fill="none" stroke="#9A78F2" stroke-width="14" stroke-linecap="round">
+      <path d="M256 198V151"/>
+      <path d="M306 285 347 309"/>
+      <path d="M206 285 165 309"/>
+    </g>
+    <g id="life-core">
+      <path d="M256 190 313 223V289L256 322 199 289V223Z" fill="#9A78F2"/>
+      <circle cx="256" cy="256" r="19" fill="#07050D"/>
+    </g>
+    <g id="autonomous-agents">
+      <circle cx="256" cy="132" r="21" fill="#9A78F2"/>
+      <circle cx="363" cy="318" r="21" fill="#B8E532"/>
+      <circle cx="149" cy="318" r="21" fill="#9A78F2"/>
+    </g>
+  </g></g>
+    <g transform="translate(330 62) scale(1.1)"><g id="rubisck-wordmark" fill="#F7F5FB" fill-rule="evenodd" clip-rule="evenodd">
+    <g id="glyph-r">
+      <path d="M12 20H93C116 20 128 29 128 45C128 61 116 69 94 69H28V100H12V20ZM28 33V56H92C105 56 112 52 112 45C112 37 105 33 92 33H28Z"/>
+      <path d="M74 72H98L132 100H107L74 72Z"/>
+    </g>
+    <g id="glyph-u">
+      <path d="M157 20H174V69C174 83 182 88 198 88H214C230 88 238 83 238 69V20H255V71C255 91 242 100 214 100H198C170 100 157 91 157 71V20Z"/>
+    </g>
+    <g id="glyph-b">
+      <path d="M306 20H387C412 20 425 27 425 40C425 50 418 56 404 60C418 64 425 70 425 80C425 93 412 100 387 100H306V20ZM322 33V54H386C401 54 409 49 409 40C409 35 401 33 386 33H322ZM322 66V87H386C401 87 409 85 409 80C409 71 401 66 386 66H322Z"/>
+    </g>
+    <g id="glyph-i">
+      <path d="M461 20H477V100H461Z"/>
+    </g>
+    <g id="glyph-s">
+      <path d="M628 20V33H540C524 33 517 36 517 42C517 49 524 52 539 52H588C613 52 626 62 626 78C626 94 613 100 588 100H500V87H587C604 87 612 84 612 78C612 70 604 65 587 65H538C514 65 502 57 502 43C502 28 514 20 539 20H628Z"/>
+    </g>
+    <g id="glyph-c">
+      <path d="M774 20V33H692C674 33 665 40 665 56V64C665 80 674 87 692 87H774V100H691C664 100 651 89 651 65V55C651 31 664 20 691 20H774Z"/>
+    </g>
+    <g id="glyph-k">
+      <path d="M801 20H817V100H801V20Z"/>
+      <path d="M817 56L882 20H912L838 63L817 56Z"/>
+      <path d="M840 59L920 100H890L817 65L840 59Z"/>
+    </g>
+  </g></g>
+    
+</svg>
