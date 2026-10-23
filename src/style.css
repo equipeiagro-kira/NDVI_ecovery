@@ -4,3 +4,5 @@
 
 .legend div{background:linear-gradient(90deg,rgb(59,71,102) 0%,rgb(191,64,51) 50%,rgb(240,166,56) 60%,rgb(230,214,64) 70%,rgb(140,189,69) 80%,rgb(56,145,69) 90%,rgb(15,82,56) 100%)}.render-info{font-size:11px;margin-top:12px}.leaflet-image-layer{image-rendering:auto}
 .inspector{overflow-y:auto;overscroll-behavior:contain}
+
+.browser-help{padding:12px;border:1px solid #4d3b69;border-radius:7px;background:#1c142b;margin:14px 0}.browser-help strong{font-size:13px}.browser-help p{font-size:12px;margin:8px 0}.browser-help code{display:block;overflow-wrap:anywhere;color:#d6c5ff;font-size:12px}.modal{max-height:94vh;overflow-y:auto}.disconnect{width:100%;margin-top:15px;font-size:12px}

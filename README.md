@@ -2,6 +2,25 @@
 
 Aplicação local para consultar Sentinel-2 L2A no Copernicus Data Space, visualizar NDVI e cor natural e exportar imagens. Identidade oficial RUBISCK Ciclo Vivo v2.
 
+## Aplicativo na internet
+
+Endereço do aplicativo: https://equipeiagro-kira.github.io/NDVI_ecovery/
+
+A versão GitHub Pages executa as consultas diretamente no navegador de cada visitante. Não depende do servidor local nem de um computador ligado. Client ID, Client Secret e token ficam somente na memória da aba; não são enviados ao GitHub nem armazenados em localStorage/sessionStorage. Recarregar ou fechar a página exige uma nova conexão. Cada aba tem sua própria conexão, área e imagens.
+
+Para conectar a versão pública:
+
+1. No painel https://shapps.dataspace.copernicus.eu/dashboard/#/account/settings, crie um OAuth Client com a opção **SPA** habilitada.
+2. Autorize a origem exata **https://equipeiagro-kira.github.io** (sem `/NDVI_ecovery/`).
+3. No aplicativo, clique em **Configurar conexão** e preencha o Client ID e o Client Secret desse cliente.
+4. Importe o KML, selecione o talhão, clique em **Buscar imagens** e exporte o PNG da data desejada.
+
+O aplicativo pede credenciais OAuth da aplicação, não a senha pessoal da conta Copernicus. Compartilhar a mesma credencial entre colegas consome a mesma cota de uso. O botão **Desconectar e limpar credenciais** remove a conexão da aba.
+
+A publicação automática em `.github/workflows/pages.yml` roda os testes, gera a versão estática e publica no GitHub Pages a cada envio para `main`. Não usa segredos de Copernicus no build ou no repositório.
+
+Para testar a versão Pages localmente: `npm run build:pages` e `npm run preview:pages`; abra http://127.0.0.1:5176/NDVI_ecovery/. Para autenticação real nesse teste, a origem local também precisa estar autorizada no cliente SPA.
+
 ## Executar
 
 Requer Node.js 22 ou superior. Na pasta do projeto:
@@ -39,13 +58,13 @@ Por custo e segurança local, o envelope geográfico é limitado a 0,25 grau qua
 
 ## Git e publicação
 
-Nome solicitado: `NDVI_ecovery`. `.env`, dependências e builds são ignorados. Segredos devem permanecer fora do repositório. O projeto foi concebido para acesso local; antes de hospedá-lo publicamente, implementar autenticação de usuários, limites de uso por usuário e armazenamento seguro de credenciais. Publicar o código no GitHub não hospeda o servidor Node automaticamente. GitHub Pages sozinho não executa este backend.
+Nome solicitado: `NDVI_ecovery`. `.env`, dependências e builds são ignorados. Segredos devem permanecer fora do repositório. O servidor Node continua sendo uma opção local, com acesso apenas a este computador. A publicação pública usa o modo Pages, com acesso direto ao Copernicus em cada navegador. O servidor Node não é publicado no GitHub Pages.
 
-Repositório privado: https://github.com/equipeiagro-kira/NDVI_ecovery
+Repositório público do código: https://github.com/equipeiagro-kira/NDVI_ecovery
 
 ## Validação
 
-`npm test` executa dez testes de limites de área, denominador da qualidade, ordenação, período e renderização contínua. A sessão local real confirmou autenticação e uma consulta concluída com 61 aquisições avaliadas e 24 meses selecionados. Isso valida a busca e o ranking, mas não confirma a comparação visual com o Lovable nem a exportação de uma cena real específica. Esses passos continuam pendentes.
+`npm test` executa treze testes de limites de área, denominador da qualidade, ordenação, período, renderização contínua e isolamento dos clientes de navegador. A sessão local real confirmou autenticação e uma consulta concluída com 61 aquisições avaliadas e 24 meses selecionados. Isso valida a busca e o ranking locais, mas não confirma a comparação visual com o Lovable nem a autenticação real do cliente SPA no domínio público. A última depende de credenciais autorizadas para essa origem.
 
 ## Referências
 
