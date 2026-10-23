@@ -64,7 +64,9 @@ Repositório público do código: https://github.com/equipeiagro-kira/NDVI_ecove
 
 ## Validação
 
-`npm test` executa treze testes de limites de área, denominador da qualidade, ordenação, período, renderização contínua e isolamento dos clientes de navegador. A sessão local real confirmou autenticação e uma consulta concluída com 61 aquisições avaliadas e 24 meses selecionados. Isso valida a busca e o ranking locais, mas não confirma a comparação visual com o Lovable nem a autenticação real do cliente SPA no domínio público. A última depende de credenciais autorizadas para essa origem.
+`npm test` executa quinze testes de limites de área, denominador da qualidade, ordenação, período, renderização contínua, isolamento dos clientes de navegador e diagnóstico de acesso. A sessão local real confirmou autenticação e uma consulta concluída com 61 aquisições avaliadas e 24 meses selecionados. Isso valida a busca e o ranking locais, mas não confirma a comparação visual com o Lovable nem a autenticação real do cliente SPA no domínio público. A última depende de credenciais autorizadas para essa origem.
+
+Na tela de conexão, **Testar acesso ao Copernicus** consulta apenas metadados públicos do serviço, sem enviar suas credenciais. Serviço acessível não significa credencial válida. Mensagens HTTP de autenticação são mostradas separadamente de falhas de transporte, bloqueios do navegador e timeout.
 
 ## Referências
 

@@ -37,3 +37,11 @@ Adicionado modo de build Pages com autenticação e processamento diretamente no
 Treze testes unitários passaram. Os novos testes cobrem isolamento entre clientes e após recarregar, rejeição de autenticação inválida, orientação para SPA/CORS, ranking, exportação PNG, cache e interpolação independente da máscara. A rampa foi extraída para um módulo comum que funciona após a minificação do build de navegador.
 
 O fluxo real em navegador usa provedor simulado isolado para verificar a versão Pages compilada: não depende de `/api`, mantém o caminho `/NDVI_ecovery/`, lê KML, gera PNG com mais de cem cores e máscara transparente, exporta e não grava credenciais. Testes simulados não comprovam a aceitação das credenciais reais do usuário no domínio público; o OAuth Client deve estar habilitado para SPA e autorizar `https://equipeiagro-kira.github.io`.
+
+## Diagnóstico de autenticação · 23/10/2026
+
+A mensagem de transporte anterior atribuía falhas de rede genericamente à configuração SPA. Ela foi corrigida para informar que a resposta da autenticação não pôde ser lida e que as credenciais não foram validadas. Erros HTTP de autenticação continuam separados. Foi adicionado **Testar acesso ao Copernicus**, que consulta somente metadados públicos e não envia Client ID nem Client Secret. Um resultado positivo de acessibilidade não é apresentado como prova de autenticação.
+
+O endpoint real de metadados respondeu HTTP 200 e permitiu a origem do site. Um teste no navegador público, usando somente o Client ID da captura e um segredo fictício, recebeu HTTP 401 legível: isso comprova acessibilidade naquele teste, sem validar o segredo real ou a configuração SPA do cliente do usuário. O usuário informou não saber se configurou SPA e a origem. A configuração do OAuth Client permanece como etapa a conferir no painel.
+
+Dois testes adicionais cobrem o diagnóstico sem autenticação e a distinção entre falha de rede e timeout. Nenhum Client Secret real foi obtido ou registrado.
